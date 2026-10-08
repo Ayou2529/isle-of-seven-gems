@@ -1,0 +1,240 @@
+/* ==========================================================================
+   THE ISLE OF SEVEN GEMS — Official Movie Promo Website Theme (<= 500 Lines)
+   Theme: Epic Thai Mythological Cinema (Dark Glassmorphism + Gilded Gold)
+   ========================================================================== */
+
+:root {
+  --bg-primary: #040711;
+  --bg-secondary: #0b1120;
+  --bg-card: rgba(13, 20, 36, 0.88);
+  --border-card: rgba(245, 158, 11, 0.22);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --gold-main: #f59e0b;
+  --gold-light: #fef08a;
+  --gold-glow: rgba(245, 158, 11, 0.45);
+  --c-ruby: #ef4444; --c-sapphire: #38bdf8; --c-emerald: #10b981;
+  --c-topaz: #fbbf24; --c-garnet: #f472b6; --c-diamond: #e0e7ff; --c-opal: #fb923c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Prompt', 'Sarabun', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.14) 0%, transparent 60%),
+    radial-gradient(circle at 10% 40%, rgba(239, 68, 68, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
+    linear-gradient(180deg, #040711 0%, #070d1b 50%, #040711 100%);
+  min-height: 100vh; line-height: 1.65; font-size: 15px; -webkit-font-smoothing: antialiased;
+}
+
+/* Movie Teaser Header */
+header {
+  background: linear-gradient(180deg, rgba(4, 7, 17, 0.98) 0%, rgba(11, 17, 32, 0.92) 100%);
+  border-bottom: 1px solid var(--border-card);
+  backdrop-filter: blur(16px);
+  position: sticky; top: 0; z-index: 100; padding: 0.85rem 1.25rem;
+}
+
+.header-container {
+  max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 0.75rem;
+}
+
+.laurel-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.85rem;
+  border-radius: 9999px; font-size: 0.73rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(234, 88, 12, 0.15));
+  color: var(--gold-light); border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+}
+
+.title-group h1 {
+  font-family: 'Cinzel', 'Prompt', serif; font-size: clamp(1.3rem, 4vw, 1.85rem);
+  letter-spacing: 0.04em; color: #fff; display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem;
+}
+.title-group h1 span { color: var(--gold-main); text-shadow: 0 0 16px var(--gold-glow); }
+.subtitle { font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.03em; }
+
+/* Horizontal Movie Tabs (Mobile Swipeable) */
+nav.nav-tabs {
+  max-width: 1300px; margin: 0.75rem auto 0; display: flex; gap: 0.45rem;
+  overflow-x: auto; padding-bottom: 0.4rem; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+nav.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-tab-btn {
+  background: rgba(19, 29, 51, 0.7); border: 1px solid rgba(245, 158, 11, 0.15);
+  color: #cbd5e1; padding: 0.55rem 1.05rem; min-height: 42px; border-radius: 9999px;
+  font-size: 0.85rem; font-weight: 500; cursor: pointer; white-space: nowrap;
+  transition: all 0.25s ease; font-family: inherit; touch-action: manipulation;
+}
+.nav-tab-btn:hover { color: #fff; border-color: var(--gold-main); box-shadow: 0 0 10px rgba(245, 158, 11, 0.2); }
+.nav-tab-btn.active {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(180, 83, 9, 0.25) 100%);
+  border-color: var(--gold-main); color: #fff; box-shadow: 0 0 16px rgba(245, 158, 11, 0.35); font-weight: 600;
+}
+
+/* Main Container */
+main { max-width: 1300px; margin: 1.5rem auto; padding: 0 1rem; }
+.tab-pane { display: none; animation: cinemaFade 0.35s ease-in-out; }
+.tab-pane.active { display: block; }
+@keyframes cinemaFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Movie Billboard Hero Card */
+.hero-card {
+  background: linear-gradient(160deg, rgba(17, 26, 47, 0.95) 0%, rgba(9, 13, 26, 0.95) 100%);
+  border: 1px solid var(--border-card); border-radius: 18px; padding: clamp(1.35rem, 3.5vw, 2.5rem);
+  margin-bottom: 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(245, 158, 11, 0.05);
+  position: relative; overflow: hidden;
+}
+.hero-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+}
+
+.movie-title-art {
+  font-family: 'Cinzel', 'Prompt', serif; font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700; color: #fff; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 25px rgba(245, 158, 11, 0.3);
+  letter-spacing: 0.05em; margin: 0.5rem 0;
+}
+
+.movie-tagline {
+  border-left: 4px solid var(--gold-main);
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, transparent 100%);
+  padding: 0.75rem 1rem; margin: 1.1rem 0; font-size: clamp(1.05rem, 2.8vw, 1.3rem);
+  font-weight: 500; color: var(--gold-light); font-style: italic; border-radius: 0 8px 8px 0;
+}
+
+/* Call to Action Bar */
+.cta-bar { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.25rem; }
+.btn-cta {
+  background: linear-gradient(135deg, var(--gold-main) 0%, #d97706 100%);
+  color: #040711; font-weight: 700; padding: 0.65rem 1.25rem; border-radius: 8px; border: none;
+  cursor: pointer; font-size: 0.88rem; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+  transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5); }
+.btn-cta-secondary {
+  background: rgba(30, 41, 59, 0.8); color: #e2e8f0; border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.65rem 1.1rem; border-radius: 8px; font-size: 0.88rem; cursor: pointer; transition: all 0.2s;
+}
+.btn-cta-secondary:hover { border-color: var(--gold-main); color: #fff; }
+
+/* Grids */
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.grid-7 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.15rem; }
+
+/* Glass Card */
+.card {
+  background: var(--bg-card); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px;
+  padding: 1.35rem; backdrop-filter: blur(12px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+}
+.card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 158, 11, 0.15);
+  transform: translateY(-3px);
+}
+.card h3 {
+  color: var(--gold-main); font-size: 1.15rem; margin-bottom: 0.65rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+
+/* Guardian Card */
+.guardian-card { border-top: 4px solid var(--card-gem-color, var(--gold-main)); position: relative; }
+.guardian-badge {
+  display: inline-block; font-size: 0.72rem; padding: 0.22rem 0.55rem; border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08); color: var(--card-gem-color, #fff); margin-bottom: 0.4rem; font-weight: 700;
+}
+.guardian-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.55; }
+.guardian-meta strong { color: #e2e8f0; }
+.quote-bubble {
+  background: rgba(6, 10, 20, 0.9); border-radius: 8px; padding: 0.8rem; font-size: 0.85rem;
+  color: #cbd5e1; border-left: 3px solid var(--card-gem-color, var(--gold-main));
+  margin-top: 0.65rem; font-style: italic; line-height: 1.45;
+}
+
+/* Screenplay Act Viewer */
+.act-card {
+  margin-bottom: 1.25rem; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 12px;
+  background: rgba(11, 17, 32, 0.8); overflow: hidden;
+}
+.act-header {
+  background: rgba(23, 34, 58, 0.9); padding: 1rem 1.25rem; display: flex;
+  justify-content: space-between; align-items: center; cursor: pointer; min-height: 48px;
+}
+.act-header h3 { margin: 0; color: var(--gold-main); font-size: 1.05rem; }
+.act-body { padding: 1.2rem; display: block; }
+.script-scene {
+  background: rgba(5, 8, 16, 0.8); border-left: 3px solid rgba(245, 158, 11, 0.6);
+  padding: 0.95rem; margin-bottom: 0.95rem; border-radius: 0 8px 8px 0;
+}
+.scene-title { font-weight: 700; color: #38bdf8; font-size: 0.9rem; margin-bottom: 0.35rem; letter-spacing: 0.02em; }
+.scene-dialogue {
+  margin-top: 0.5rem; padding-left: 0.85rem; border-left: 2px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.88rem; line-height: 1.55;
+}
+.char-speaker { color: #fbbf24; font-weight: 700; }
+
+/* Prompt Card */
+.prompt-card { font-size: 0.88rem; }
+.prompt-text {
+  background: rgba(4, 7, 15, 0.9); padding: 0.85rem; border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07); color: #e2e8f0;
+  font-family: ui-monospace, SFMono-Regular, monospace; font-size: 0.8rem;
+  max-height: 130px; overflow-y: auto; margin: 0.65rem 0; line-height: 1.45;
+}
+.btn-copy {
+  background: rgba(245, 158, 11, 0.15); color: var(--gold-main);
+  border: 1px solid rgba(245, 158, 11, 0.35); padding: 0.5rem 1rem; min-height: 40px;
+  border-radius: 8px; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;
+  width: 100%; font-family: inherit; font-weight: 600; touch-action: manipulation;
+}
+.btn-copy:active { transform: scale(0.98); }
+
+/* Timeline */
+.timeline { display: flex; flex-direction: column; gap: 0.95rem; position: relative; padding-left: 1.35rem; border-left: 2px dashed rgba(245, 158, 11, 0.3); }
+.timeline-item { position: relative; }
+.timeline-item::before {
+  content: ""; position: absolute; left: -1.75rem; top: 0.35rem; width: 12px; height: 12px;
+  border-radius: 50%; background: var(--gold-main); border: 2px solid #040711; box-shadow: 0 0 8px var(--gold-glow);
+}
+.time-stamp { font-weight: 700; color: var(--gold-main); font-size: 0.82rem; }
+
+/* Theatrical Billing Block (Movie Poster Credits) */
+.billing-block {
+  text-align: center; padding: 1.5rem 1rem; border-top: 1px solid rgba(245, 158, 11, 0.2);
+  margin-top: 2rem; background: rgba(4, 7, 17, 0.9);
+}
+.billing-text {
+  font-family: 'Cinzel', 'Prompt', serif; font-size: 0.72rem; letter-spacing: 0.14em;
+  color: #64748b; text-transform: uppercase; line-height: 1.8; max-width: 900px; margin: 0 auto;
+}
+.billing-text span { color: #94a3b8; font-weight: 600; }
+
+/* Floating Top */
+.btn-top {
+  position: fixed; bottom: 1.5rem; right: 1.25rem; background: rgba(19, 29, 51, 0.92);
+  color: var(--gold-main); border: 1px solid var(--border-card); border-radius: 50%;
+  width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); z-index: 99;
+}
+
+/* Mobile Media Queries */
+@media (max-width: 768px) {
+  header { padding: 0.75rem 1rem; }
+  .grid-2, .grid-3, .grid-7 { grid-template-columns: 1fr; gap: 1rem; }
+  .card { padding: 1.15rem; }
+  .movie-title-art { font-size: 1.7rem; }
+  .cta-bar { flex-direction: column; }
+  .btn-cta, .btn-cta-secondary { width: 100%; justify-content: center; }
+}
